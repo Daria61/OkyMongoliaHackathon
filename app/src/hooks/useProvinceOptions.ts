@@ -13,7 +13,7 @@ export const useProvinceOptions = (country: string | undefined): WheelPickerOpti
     const filteredProvinces = provinces.filter(({ code, uid }) => code === countryCode || uid === 0)
 
     return filteredProvinces.map((item) => ({
-      label: item?.[locale],
+      label: item?.['en'],
       value: item.uid.toString(),
     }))
   }, [country, provinces, locale])
