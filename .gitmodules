@@ -1,0 +1,6 @@
+[submodule ".k8s"]
+	path = .k8s
+	url = git@github.com:Oky-period-tracker/periodtracker_k8s-whitelabelled.git
+# [submodule "app/src/resources"]
+# 	path = app/src/resources
+# 	url = git@github.com:Oky-period-tracker/periodtracker_resources-whitelabelled.git

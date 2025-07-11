@@ -1,5 +1,5 @@
 import { Locale } from '.'
-import { CalendarTranslations } from '../../app/src/core/types/translations/calendar'
+import { CalendarTranslations } from '../../types/translations/calendar'
 
 export const calendarTranslations: Record<Locale, CalendarTranslations> = {
   en: {
