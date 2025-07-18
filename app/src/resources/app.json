@@ -24,7 +24,7 @@
       }
     },
     "android": {
-      "package": "com.example",
+      "package": "com.oky.mn",
       "versionCode": 80,
       "supportsTablet": true,
       "permissions": ["INTERNET"]

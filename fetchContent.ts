@@ -16,13 +16,11 @@ const cms_url = 'https://cms.okyapp.info/'
 
 const getContent = async () => {
   console.log(`Locale: ${locale}`)
-  console.log(`CMS: ${cms_url}\n`)
 
   // Encyclopedia
   let encyclopediaResponse = []
   const encyclopediaUrl = `${cms_url}mobile/articles/${locale}`
   try {
-    console.log('Fetching Encyclopedia')
     const response = await axios.get(encyclopediaUrl)
     encyclopediaResponse = response.data
   } catch (error) {
@@ -31,20 +29,19 @@ const getContent = async () => {
 
   // Videos
   let videosResponse = []
-  const videosUrl = `${cms_url}mobile/videos/${locale}`
-  try {
-    console.log('Fetching Videos')
-    const response = await axios.get(videosUrl)
-    videosResponse = response.data
-  } catch (error) {
-    console.error(`Request failed: ${videosUrl}`)
-  }
+  // const videosUrl = `${cms_url}mobile/videos/${locale}`
+  // try {
+  //   console.log('Fetching Videos')
+  //   const response = await axios.get(videosUrl)
+  //   videosResponse = response.data
+  // } catch (error) {
+  //   console.error(`Request failed: ${videosUrl}`)
+  // }
 
   // Privacy policy
   let privacyPolicy = []
   const privacyUrl = `${cms_url}mobile/privacy-policy/${locale}`
   try {
-    console.log('Fetching Privacy policy')
     const response = await axios.get(privacyUrl)
     privacyPolicy = response.data
   } catch (error) {
@@ -55,7 +52,6 @@ const getContent = async () => {
   let termsAndConditions = []
   const termsUrl = `${cms_url}mobile/terms-and-conditions/${locale}`
   try {
-    console.log('Fetching Terms and conditions')
     const response = await axios.get(termsUrl)
     termsAndConditions = response.data
   } catch (error) {
@@ -66,7 +62,6 @@ const getContent = async () => {
   let about = []
   const aboutUrl = `${cms_url}mobile/about/${locale}`
   try {
-    console.log('Fetching About')
     const response = await axios.get(aboutUrl)
     about = response.data
   } catch (error) {
@@ -88,7 +83,6 @@ const getContent = async () => {
   let helpCenterResponse = []
   const helpUrl = `${cms_url}mobile/help-center/${locale}`
   try {
-    console.log('Fetching Help center')
     const response = await axios.get(helpUrl)
     helpCenterResponse = response.data
   } catch (error) {
@@ -99,7 +93,6 @@ const getContent = async () => {
   let helpCenterAttributesResponse = []
   const helpAttributeUrl = `${cms_url}mobile/help-center-attribute/${locale}`
   try {
-    console.log('Fetching Help center attributes')
     const response = await axios.get(helpAttributeUrl)
     helpCenterAttributesResponse = response.data
   } catch (error) {
@@ -110,7 +103,6 @@ const getContent = async () => {
   let quizzesResponse = []
   const quizUrl = `${cms_url}mobile/quizzes/${locale}`
   try {
-    console.log('Fetching Quiz')
     const response = await axios.get(quizUrl)
     quizzesResponse = response.data
   } catch (error) {
@@ -121,7 +113,6 @@ const getContent = async () => {
   let didYouKnowsResponse = []
   const didYouKnowsUrl = `${cms_url}mobile/didyouknows/${locale}`
   try {
-    console.log('Fetching Did you know')
     const response = await axios.get(didYouKnowsUrl)
     didYouKnowsResponse = response.data
   } catch (error) {
@@ -132,7 +123,6 @@ const getContent = async () => {
   let avatarMessagesResponse = []
   const avatarUrl = `${cms_url}mobile/avatar-messages/${locale}`
   try {
-    console.log('Fetching Avatar messages')
     const response = await axios.get(avatarUrl)
     avatarMessagesResponse = response.data
   } catch (error) {
