@@ -23,12 +23,7 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-      - name: Build Docker image
-        run: |
-          docker build -t $ECR_REPOSITORY:latest ./packages/api
-      - name: Push Docker image to ECR
-        run: |
-          docker push $ECR_REPOSITORY:latest
+    # ...existing code...
       - name: Deploy to ECS Fargate
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
