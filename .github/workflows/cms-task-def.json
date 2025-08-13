@@ -1,0 +1,88 @@
+{
+    "family": "okymn-cms-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "containerDefinitions": [
+        {
+            "name": "okymn-cms",
+            "image": "258530535561.dkr.ecr.ap-northeast-1.amazonaws.com/okymn/cms:latest",
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "NODE_ENV",
+                    "value": "development"
+                },
+                {
+                    "name": "PASSPORT_SECRET",
+                    "value": "!ChangeMe!"
+                },
+                {
+                    "name": "API_PORT",
+                    "value": "3000"
+                },
+                {
+                    "name": "CMS_PORT",
+                    "value": "5000"
+                },
+                {
+                    "name": "DATABASE_TYPE",
+                    "value": "postgres"
+                },
+                {
+                    "name": "DATABASE_HOST",
+                    "value": "postgres"
+                },
+                {
+                    "name": "DATABASE_PORT",
+                    "value": "5432"
+                },
+                {
+                    "name": "DATABASE_USERNAME",
+                    "value": "periodtracker"
+                },
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "value": "periodtracker"
+                },
+                {
+                    "name": "DATABASE_NAME",
+                    "value": "periodtracker"
+                },
+                {
+                    "name": "DATABASE_SCHEMA",
+                    "value": "periodtracker"
+                },
+                {
+                    "name": "DATABASE_SYNCHRONIZE",
+                    "value": "false"
+                },
+                {
+                    "name": "DATABASE_LOGGING",
+                    "value": "true"
+                },
+                {
+                    "name": "DEFAULT_LOCALE",
+                    "value": "mn"
+                },
+                {
+                    "name": "STORAGE_BUCKET",
+                    "value": ""
+                },
+                {
+                    "name": "STORAGE_BASE_URL",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}

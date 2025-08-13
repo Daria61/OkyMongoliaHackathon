@@ -1,0 +1,110 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ALB, Target Groups, Listener Rules, and ECS Fargate Services for okymn API and CMS
+Parameters:
+  VpcId:
+    Type: String
+    Description: VPC ID
+  Subnets:
+    Type: List<String>
+    Description: Subnet IDs for ALB
+  ClusterName:
+    Type: String
+    Description: ECS Cluster Name
+Resources:
+  ALB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: okymn-alb
+      Scheme: internet-facing
+      Subnets: !Ref Subnets
+      SecurityGroups: [] # Add your security group IDs here
+  ApiTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: okymn-api-tg
+      Port: 3000
+      Protocol: HTTP
+      VpcId: !Ref VpcId
+      TargetType: ip
+      HealthCheckPath: /
+  CmsTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: okymn-cms-tg
+      Port: 5000
+      Protocol: HTTP
+      VpcId: !Ref VpcId
+      TargetType: ip
+      HealthCheckPath: /
+  ALBListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - Type: fixed-response
+          FixedResponseConfig:
+            StatusCode: 404
+            ContentType: text/plain
+            MessageBody: Not Found
+      LoadBalancerArn: !Ref ALB
+      Port: 80
+      Protocol: HTTP
+  ApiListenerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref ALBListener
+      Priority: 1
+      Conditions:
+        - Field: host-header
+          HostHeaderConfig:
+            Values:
+              - api.okymongolia.info
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref ApiTargetGroup
+  CmsListenerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref ALBListener
+      Priority: 2
+      Conditions:
+        - Field: host-header
+          HostHeaderConfig:
+            Values:
+              - cms.okymongolia.info
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref CmsTargetGroup
+  ApiService:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: !Ref ClusterName
+      LaunchType: FARGATE
+      DesiredCount: 1
+      TaskDefinition: "REPLACE_WITH_API_TASK_DEFINITION_ARN"
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets: !Ref Subnets
+          AssignPublicIp: ENABLED
+      LoadBalancers:
+        - ContainerName: okymn-api
+          ContainerPort: 3000
+          TargetGroupArn: !Ref ApiTargetGroup
+  CmsService:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: !Ref ClusterName
+      LaunchType: FARGATE
+      DesiredCount: 1
+      TaskDefinition: "REPLACE_WITH_CMS_TASK_DEFINITION_ARN"
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets: !Ref Subnets
+          AssignPublicIp: ENABLED
+      LoadBalancers:
+        - ContainerName: okymn-cms
+          ContainerPort: 5000
+          TargetGroupArn: !Ref CmsTargetGroup
+Outputs:
+  ALBDNS:
+    Description: DNS name of the ALB
+    Value: !GetAtt ALB.DNSName
