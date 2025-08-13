@@ -37,6 +37,7 @@ export async function createServer() {
     logging: env.db.logging,
     entities: dirs.entities,
     migrations: dirs.migrations,
+    ssl: env.db.type === 'postgres' ? { rejectUnauthorized: false } : undefined,
   })
 
   // pre-load services and make them available to typedi

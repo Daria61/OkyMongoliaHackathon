@@ -18,6 +18,7 @@ const ormconfig: ConnectionOptions = {
     entitiesDir: __dirname + '/src/entity',
     subscribersDir: __dirname + '/src/subscriber',
   },
+  ssl: env.db.type === 'postgres' ? { rejectUnauthorized: false } : undefined,
 }
 
 export = ormconfig

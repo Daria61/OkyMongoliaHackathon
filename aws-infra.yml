@@ -2,14 +2,17 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: ALB, Target Groups, Listener Rules, and ECS Fargate Services for okymn API and CMS
 Parameters:
   VpcId:
-    Type: String
-    Description: VPC ID
+      Type: String
+      Description: VPC ID
+      Default: vpc-0cd9c57358be6cca1
   Subnets:
     Type: List<String>
     Description: Subnet IDs for ALB
+    Default: "subnet-043ccd514c1f0c903,subnet-06f58c39e908c70b9"
   ClusterName:
-    Type: String
-    Description: ECS Cluster Name
+      Type: String
+      Description: ECS Cluster Name
+      Default: okymn-cluster
 Resources:
   ALB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -18,6 +21,7 @@ Resources:
       Scheme: internet-facing
       Subnets: !Ref Subnets
       SecurityGroups: [] # Add your security group IDs here
+    DeletionPolicy: Retain
   ApiTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -27,6 +31,7 @@ Resources:
       VpcId: !Ref VpcId
       TargetType: ip
       HealthCheckPath: /
+    DeletionPolicy: Retain
   CmsTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -36,6 +41,7 @@ Resources:
       VpcId: !Ref VpcId
       TargetType: ip
       HealthCheckPath: /
+    DeletionPolicy: Retain
   ALBListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
@@ -48,6 +54,7 @@ Resources:
       LoadBalancerArn: !Ref ALB
       Port: 80
       Protocol: HTTP
+    DeletionPolicy: Retain
   ApiListenerRule:
     Type: AWS::ElasticLoadBalancingV2::ListenerRule
     Properties:
@@ -61,6 +68,7 @@ Resources:
       Actions:
         - Type: forward
           TargetGroupArn: !Ref ApiTargetGroup
+    DeletionPolicy: Retain
   CmsListenerRule:
     Type: AWS::ElasticLoadBalancingV2::ListenerRule
     Properties:
@@ -74,6 +82,7 @@ Resources:
       Actions:
         - Type: forward
           TargetGroupArn: !Ref CmsTargetGroup
+    DeletionPolicy: Retain
   ApiService:
     Type: AWS::ECS::Service
     Properties:
@@ -89,6 +98,7 @@ Resources:
         - ContainerName: okymn-api
           ContainerPort: 3000
           TargetGroupArn: !Ref ApiTargetGroup
+    DeletionPolicy: Retain
   CmsService:
     Type: AWS::ECS::Service
     Properties:
@@ -104,7 +114,5 @@ Resources:
         - ContainerName: okymn-cms
           ContainerPort: 5000
           TargetGroupArn: !Ref CmsTargetGroup
-Outputs:
-  ALBDNS:
-    Description: DNS name of the ALB
-    Value: !GetAtt ALB.DNSName
+    DeletionPolicy: Retain
+
