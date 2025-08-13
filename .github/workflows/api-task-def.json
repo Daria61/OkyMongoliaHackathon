@@ -1,5 +1,6 @@
 {
     "family": "okymn-api-task",
+    "executionRoleArn": "arn:aws:iam::258530535561:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
