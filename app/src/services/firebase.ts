@@ -15,7 +15,16 @@ let firebaseApp: ReactNativeFirebase.FirebaseApp | undefined
 try {
   if (!isExpoGo) {
     const firebase = require('@react-native-firebase/app').default
-    firebaseApp = firebase.initializeApp()
+
+    // Check if Firebase is already initialized
+    if (!firebase.apps.length) {
+      firebaseApp = firebase.initializeApp({
+        // Firebase will automatically use google-services.json for Android
+        // and GoogleService-Info.plist for iOS
+      })
+    } else {
+      firebaseApp = firebase.app()
+    }
   }
 } catch (e) {
   console.warn('Firebase initialization failed:', e)
