@@ -51,6 +51,7 @@
         <h5><%= __('Welcome') %> <%=currentUser.username%></h5>
         <% }%>
         <ul class="nav navbar-nav">
+          <% console.log(cmsLanguages) %>
           <% if(currentUser){ %>
           <li class="nav-item">
             <a class="nav-link" href="/logout"><%= __('Logout') %></a>
@@ -66,6 +67,10 @@
               aria-expanded="false" aria-controls="collapseExample" >
               <%=cmsLanguages.find((item) => item.locale === currentUser.lang).name %>
             </button>
+              <!-- <div class="dropdown-menu dropdown1" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">Mongolia</a>
+              </div> -->
 
             <div class="collapse" id="collapseExample">
               <div class="card card-body">
@@ -84,3 +89,57 @@
     </nav>
   </head>
   <body>
+ <!-- <script>
+     $('.dropdown1 a').on('click', function(){
+      $('#show').text($(this).text());
+        console.log(document.cookie)
+        var lang;
+        if($(this).text()=='Mongolia'){
+        document.cookie='lang=mn'
+        lang='mn'
+        }else {
+          document.cookie='lang=en'
+          lang='en'
+        }
+        
+      <% if(currentUser){ %>
+        const data = {
+        lang: lang,
+      }
+        $.ajax({
+        url: '/user/change-location/',
+        type: 'PUT',
+        data: data,
+        success: result => {
+          setTimeout(() => location.reload(), 1200)
+        },
+        error: error => {
+          console.log(error)
+        },
+      })
+      <% } else %>
+          location.reload()
+      });
+   
+   
+
+    $(document).ready(function() {
+      var cook=getCookie('lang')
+      if(cook==null){
+      $('#show').text('English');
+      }else {
+        if(cook=='mn'){
+          $('#show').text('Mongolia');
+        }else{
+          $('#show').text('English');
+        }
+      }
+      
+    });
+
+    function getCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+    }
+    
+    </script> -->

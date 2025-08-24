@@ -13,9 +13,12 @@
     "outDir": "dist/",
     "baseUrl": "./src/",
     "listFiles": false,
-    "typeRoots": ["../../node_modules/@types", "./@types"]
+    "typeRoots": ["../../node_modules/@types", "./@types", "./node_modules/@types"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": []
   },
-  "include": ["src/**/*", "@types/*.d.ts", "ormconfig.ts", "src/migrations/.ts"],
+  "include": ["src/**/*", "@types/*.d.ts", "ormconfig.ts", "src/migrations/.ts", "src/i18n/**/*"],
   "references": [{ "path": "../core" }],
   "exclude": ["node_modules"],
   "compileOnSave": false

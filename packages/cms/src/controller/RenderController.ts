@@ -16,7 +16,8 @@ import { HelpCenter } from '../entity/HelpCenter'
 import { About } from '../entity/About'
 import { AvatarMessages } from '../entity/AvatarMessages'
 import { PermanentNotification } from '../entity/PermanentNotification'
-import { provinces, countries, cmsLanguages } from '@oky/core'
+import { provinces, countries } from '@oky/core'
+import { cmsLanguages } from '../i18n/options'
 import { TermsAndConditions } from '../entity/TermsAndConditions'
 import { PrivacyPolicy } from '../entity/PrivacyPolicy'
 import { AboutBanner } from '../entity/AboutBanner'
@@ -255,7 +256,7 @@ export class RenderController {
       INNER JOIN ${env.db.schema}.subcategory sc  
       ON ar.subcategory = sc.id::varchar
       WHERE ar.lang = $1
-      ORDER BY ca."sortingKey" ASC, sc."sortingKey" ASC, ar."sortingKey" ASC
+      ORDER BY ca.sortingkey ASC, sc.sortingkey ASC, ar.sortingkey ASC
       `,
       [request.user.lang],
     )
@@ -280,7 +281,7 @@ export class RenderController {
       where: { lang: request.user.lang },
       order: { sortingKey: 'ASC' },
     })
-
+    console.log('dddddddddddddd',categories);
     this.render(response, 'Categories', { categories })
   }
 
@@ -296,7 +297,7 @@ export class RenderController {
       ON sc.parent_category = ca.id::varchar
       WHERE sc.lang = $1
       AND sc.parent_category = $2
-      ORDER BY sc."sortingKey" ASC
+      ORDER BY sc.sortingKey ASC
       `,
       [request.user.lang, request.params.id],
     )
@@ -323,7 +324,7 @@ export class RenderController {
       ON ar.subcategory = sc.id::varchar
       WHERE ar.lang = $1
       AND sc.id = $2
-      ORDER BY ca."sortingKey" ASC, sc."sortingKey" ASC, ar."sortingKey" ASC
+      ORDER BY ca.sortingKey ASC, sc.sortingKey ASC, ar.sortingKey ASC
       `,
       [request.user.lang, request.params.id],
     )

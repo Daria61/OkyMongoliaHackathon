@@ -9,8 +9,15 @@
     "noEmit": false,
     "outDir": "dist/",
     "rootDir": "src",
-    "typeRoots": ["../../node_modules/@types"]
+    "typeRoots": ["../../node_modules/@types"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": []
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json"
+  ],
   "exclude": [
     "**/*.test.ts", // Exclude test files
     "dist/" // Exclude output folder

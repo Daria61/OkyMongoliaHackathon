@@ -11,7 +11,9 @@
     "outDir": "dist",
     "baseUrl": "./src",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "types": []
   },
   "include": ["src/**/*"],
   "references": [
