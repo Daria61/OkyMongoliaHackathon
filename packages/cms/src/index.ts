@@ -17,7 +17,8 @@ import ormconfig from '../ormconfig'
 import { DataController } from './controller/DataController'
 import multer from 'multer'
 import path from 'path'
-import { cmsLocales, defaultLocale } from '@oky/core'
+import { defaultLocale } from '@oky/core'
+import { cmsLanguages } from './i18n/options'
 import { ArticleVoiceOverController } from './controller/ArticleVoiceOverController'
 
 createConnection(ormconfig)
@@ -35,10 +36,10 @@ createConnection(ormconfig)
     )
     app.use(express.static(__dirname + '/public'))
     i18n.configure({
-      locales: cmsLocales,
+      locales: cmsLanguages.map(lang => lang.locale),
       directory: path.join(
         path.dirname(require.resolve('@oky/core/package.json')),
-        'src/common/translations',
+        env.isProduction ? 'dist/common/translations' : 'src/common/translations',
       ),
       defaultLocale,
       cookie: 'i18n',

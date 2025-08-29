@@ -18,5 +18,8 @@ COPY packages/core ./packages/core
 COPY packages/api ./packages/api
 COPY packages/cms ./packages/cms
 
+# Ensure translations directory exists with all files
+RUN mkdir -p /usr/src/app/packages/core/src/common/translations
+
 RUN yarn run clean
 RUN yarn run compile
