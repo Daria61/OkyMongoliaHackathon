@@ -14,6 +14,6 @@ export class Subcategory {
   @Column()
   lang: string
 
-  @Column({ name: 'sortingkey', generated: 'increment' })
+  @Column({generated: 'increment' })
   sortingKey: number
 }

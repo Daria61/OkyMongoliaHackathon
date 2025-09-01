@@ -21,6 +21,6 @@ COPY --from=oky/base /usr/src/app/packages/api/dist ./dist
 COPY --from=oky/base /usr/src/app/packages/core/package.json ./packages/core/package.json
 COPY --from=oky/base /usr/src/app/packages/core/dist ./packages/core/dist
 
-WORKDIR /usr/src/app/packages/api
+WORKDIR /usr/src/app/packages/cms
 
 CMD [ "yarn", "start" ]

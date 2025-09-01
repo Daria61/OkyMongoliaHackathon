@@ -256,7 +256,7 @@ export class RenderController {
       INNER JOIN ${env.db.schema}.subcategory sc  
       ON ar.subcategory = sc.id::varchar
       WHERE ar.lang = $1
-      ORDER BY ca.sortingkey ASC, sc.sortingkey ASC, ar.sortingkey ASC
+      ORDER BY ca."sortingKey" ASC, sc."sortingKey" ASC, ar."sortingKey" ASC
       `,
       [request.user.lang],
     )
@@ -324,7 +324,7 @@ export class RenderController {
       ON ar.subcategory = sc.id::varchar
       WHERE ar.lang = $1
       AND sc.id = $2
-      ORDER BY ca.sortingKey ASC, sc.sortingKey ASC, ar.sortingKey ASC
+      ORDER BY ca."sortingKey" ASC, sc."sortingKey" ASC, ar."sortingKey" ASC
       `,
       [request.user.lang, request.params.id],
     )

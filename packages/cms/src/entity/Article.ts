@@ -38,6 +38,6 @@ export class Article {
   @Column({ nullable: true })
   voiceOverKey: string
 
-  @Column({ name: 'sortingkey', generated: 'increment' })
+  @Column({ generated: 'increment' })
   sortingKey: number
 }
