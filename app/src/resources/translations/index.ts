@@ -1,5 +1,5 @@
 export type Locale = 'en' | 'mn'
-export const defaultLocale: Locale = 'en'
+export const defaultLocale: Locale = 'mn'
 
 export * from './app'
 export * from './calendar'

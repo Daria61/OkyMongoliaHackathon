@@ -120,7 +120,10 @@ export const ProfileDetails = ({ navigation }: ScreenProps<'Profile'>) => {
       {/* ===== Bottom Section ===== */}
       <TouchableOpacity style={styles.row} onPress={goToAvatarAndTheme}>
         <View style={styles.column}>
-          <Image source={getAsset(`avatars.${avatar}.theme`)} style={styles.avatarImage} />
+          <Image
+            source={getAsset(`avatars.${avatar}.theme`) || getAsset('avatars.panda.theme')}
+            style={styles.avatarImage}
+          />
         </View>
         <View style={styles.column}>
           <View style={styles.themeWrapper}>

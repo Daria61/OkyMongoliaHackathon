@@ -289,7 +289,7 @@ export const en: AppTranslations = {
   Nov: 'Nov',
   Dec: 'Dec',
   // -------------------------Error messages-----------------------------
-  username_too_short: 'Uesrname is too short, minimum 3 characters',
+  username_too_short: 'Username is too short, minimum 3 characters',
   passcodes_mismatch: 'Passcodes do not match',
   secret_q_error_heading: 'Secret question',
   secret_que_info: `For extra privacy, we will ask you this question if you forget your passcode.`,
@@ -479,4 +479,22 @@ These combined data points allow the app to make associations and identify patte
   internet_required_text:
     'This is not available offline. Please confirm that are ok with using your data, or you are connected to wifi.',
   choose_one: 'Choose one option from the list',
+
+  // ==================== V2 ==================== //
+  select: 'Select',
+  password_too_short: 'Password is too short',
+  incorrect: 'Incorrect',
+  secret_too_short: 'Secret answer is too short',
+  change_password: 'Change password',
+  attributes: 'Attributes',
+  clear_filters: 'Clear filters',
+  videos_tag: 'Videos',
+  delete_account_fail: 'Failed to delete account',
+  error: 'Error',
+  success: 'Success',
+  unsuccessful: 'Unsuccessful',
+  secret_change_success_description: 'Your secret answer has been changed successfully',
+  password_change_fail_description: 'Failed to change password. Please try again',
+  info_button: 'Information',
+  new_password: 'New password',
 }

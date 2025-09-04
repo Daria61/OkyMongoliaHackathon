@@ -56,7 +56,6 @@ function* onLoginRequest(action: ExtractActionFromActionType<'LOGIN_REQUEST'>) {
   yield actions.setLocale(localeapp)
 
   try {
-    
     const {
       appToken,
       user,
@@ -193,7 +192,7 @@ function* onDeleteAccountRequest(action: ExtractActionFromActionType<'DELETE_ACC
     if (user) {
       yield put(actions.logout())
     }
-  } catch (err) {    
+  } catch (err) {
     Alert.alert('error', 'delete_account_fail')
   }
 }
