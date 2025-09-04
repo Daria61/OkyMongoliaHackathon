@@ -139,7 +139,7 @@ export const Avatar = ({ style }: { style?: StyleProp<ViewStyle> }) => {
     progress: progress.value,
   }))
 
-  const source = assets.lottie.avatars[avatar]
+  const source = assets.lottie.avatars[avatar] || assets.lottie.avatars.panda
   const lottieAspectRatio = source.w / source.h
   const lottieWidth = diameter * 0.33 - 12
   const lottieHeight = lottieWidth / lottieAspectRatio

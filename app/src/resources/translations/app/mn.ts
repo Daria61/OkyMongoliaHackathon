@@ -269,7 +269,7 @@ export const mn = {
   contact_phone_number_3: '95006789',
   contact_website_3: 'Мэйл:hongorzul_tsegmid@yahoo.com',
 
-  left: 'Сарын тэмдэг үргэлжлэх өдөр',
+  left: 'Сарын\nтэмдэг\nдуусахад',
   to_go: 'өдрийн дараа сарын тэмдэг ирнэ',
   // contact us
   message: 'Мессеж',

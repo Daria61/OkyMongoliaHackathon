@@ -7,6 +7,8 @@ import { useDayStatus } from '../../../hooks/useDayStatus'
 import { globalStyles } from '../../../config/theme'
 import { useResponsive } from '../../../contexts/ResponsiveContext'
 import { useColor } from '../../../hooks/useColor'
+import { useSelector } from '../../../redux/useSelector'
+import { currentLocaleSelector } from '../../../redux/selectors'
 
 export const CenterCard = ({
   style,
@@ -21,6 +23,8 @@ export const CenterCard = ({
   const { UIConfig } = useResponsive()
   const { width, numberFontSize, textFontSize } = UIConfig.centerCard
   const { backgroundColor } = useColor()
+  const locale = useSelector(currentLocaleSelector)
+  const localTextFontSize = locale === 'mn' ? 11 : textFontSize
 
   return (
     <View
@@ -43,7 +47,7 @@ export const CenterCard = ({
       >
         {todaysInfo.onPeriod ? todaysInfo.daysLeftOnPeriod : todaysInfo.daysUntilNextPeriod}
       </Text>
-      <Text style={[styles.text, { fontSize: textFontSize }]} status={status}>
+      <Text style={[styles.text, { fontSize: localTextFontSize }]} status={status}>
         {todaysInfo.onPeriod ? 'left' : 'to_go'}
       </Text>
     </View>
