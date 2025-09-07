@@ -44,6 +44,7 @@ export const DateBadge = ({ date, style }: { date: Moment; style: StyleProp<View
         size={IconSize}
         style={styles.iconButton}
         onPress={toggleVisible}
+        textStyle={{ fontSize: 11, paddingLeft: 3}}
       />
       <Button
         status={status}

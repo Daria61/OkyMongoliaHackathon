@@ -67,5 +67,6 @@ const ICON_SIZE = 40
 const styles = StyleSheet.create({
   button: {
     marginLeft: 'auto',
+    minWidth: 120,
   },
 })

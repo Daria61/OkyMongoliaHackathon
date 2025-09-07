@@ -102,12 +102,12 @@ const SettingsScreen: ScreenComponent<'Settings'> = ({ navigation }) => {
       onPress: () => navigation.navigate('Access'),
       component: <ArrowRight color={palette.basic.base} />,
     },
-    {
-      title: 'future_prediciton',
-      description: 'future_prediciton_info',
-      component: <PredictionControls />,
-      disabled: true,
-    },
+    // {
+    //   title: 'future_prediction',
+    //   description: 'future_prediction_info',
+    //   component: <PredictionControls />,
+    //   disabled: true,
+    // },
   ]
 
   return (

@@ -101,7 +101,10 @@ export const ProfileDetails = ({ navigation }: ScreenProps<'Profile'>) => {
         <View style={styles.column}>
           <View>
             <Text style={styles.text}>cycle_length</Text>
-            <Text style={styles.text}>period_length</Text>
+            <Text style={styles.text}
+            adjustsFontSizeToFit={true}
+            numberOfLines={2}
+            >period_length</Text>
           </View>
         </View>
         <View style={styles.column}>

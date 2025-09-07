@@ -51,41 +51,80 @@ export const CycleCard = ({
         {/* ===== Header ===== */}
         <View style={[styles.cycleCardHeader, { backgroundColor: palette.danger.base }]}>
           <View style={styles.row}>
-            <Text style={styles.headerText}>cycle</Text>
+            <Text 
+              style={styles.headerText}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >cycle</Text>
             <Text
               enableTranslate={false}
               style={[styles.headerText, styles.bold]}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
             >{` ${cycleNumber}`}</Text>
           </View>
 
           <View style={styles.row}>
-            <Text enableTranslate={false} style={[styles.headerText, styles.bold]}>
+            <Text 
+              enableTranslate={false} 
+              style={[styles.headerText, styles.bold]}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >
               {`${item.cycleLength} `}
             </Text>
-            <Text style={styles.headerText}>day_cycle</Text>
+            <Text 
+              style={styles.headerText}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >day_cycle</Text>
           </View>
 
           <View style={styles.row}>
-            <Text enableTranslate={false} style={[styles.headerText, styles.bold]}>
+            <Text 
+              enableTranslate={false} 
+              style={[styles.headerText, styles.bold]}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >
               {startDay}
             </Text>
-            <Text enableTranslate={false} style={styles.headerText}>{` ${startMonth} - `}</Text>
-            <Text enableTranslate={false} style={[styles.headerText, styles.bold]}>
+            <Text 
+              enableTranslate={false} 
+              style={styles.headerText}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >{` ${startMonth} - `}</Text>
+            <Text 
+              enableTranslate={false} 
+              style={[styles.headerText, styles.bold]}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >
               {endDay}
             </Text>
-            <Text enableTranslate={false} style={styles.headerText}>{` ${endMonth}`}</Text>
+            <Text 
+              enableTranslate={false} 
+              style={styles.headerText}
+              numberOfLines={1}
+              adjustsFontSizeToFit={true}
+            >{` ${endMonth}`}</Text>
           </View>
         </View>
 
         {/* ===== Body ===== */}
         <View style={styles.cycleCardBody}>
           <View style={styles.cycleCardBodyLeft}>
-            <Text>
+            <View style={styles.row}>
               <Text enableTranslate={false} style={styles.bold}>
                 {`${item.periodLength} `}
               </Text>
-              <Text>day_period</Text>
-            </Text>
+              <Text 
+                numberOfLines={1} 
+                adjustsFontSizeToFit={true}
+                style={styles.periodText}
+              >day_period</Text>
+            </View>
 
             <Text>
               <Text enableTranslate={false} style={styles.bold}>
@@ -150,7 +189,7 @@ const styles = StyleSheet.create({
   cycleCard: {
     borderRadius: 20,
     width: '100%',
-    height: 140,
+    height: 110,
     flexDirection: 'column',
     overflow: 'hidden',
   },
@@ -164,6 +203,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
+    fontSize: 12,
   },
   cycleCardBody: {
     flexDirection: 'row',
@@ -177,6 +217,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     flexBasis: '45%',
   },
+  periodText: {
+    flex: 1,
+    flexWrap: 'wrap',
+    textAlign: 'center',
+  },
   cycleCardBodyRight: {
     flexBasis: '55%',
     height: '100%',
@@ -185,6 +230,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   bold: {
     fontWeight: 'bold',

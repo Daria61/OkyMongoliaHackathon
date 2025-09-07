@@ -132,7 +132,7 @@ export const AvatarAndThemeSelect = ({ onConfirm }: AvatarAndThemeSelectProps) =
         })}
       </View>
 
-      <Button onPress={confirm} status={confirmStatus}>
+      <Button onPress={confirm} status={confirmStatus} style={{ width: 130 }}>
         confirm
       </Button>
     </Screen>

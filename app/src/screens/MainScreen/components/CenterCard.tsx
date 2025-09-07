@@ -47,7 +47,10 @@ export const CenterCard = ({
       >
         {todaysInfo.onPeriod ? todaysInfo.daysLeftOnPeriod : todaysInfo.daysUntilNextPeriod}
       </Text>
-      <Text style={[styles.text, { fontSize: localTextFontSize }]} status={status}>
+      <Text style={[styles.text, { fontSize: localTextFontSize }]} status={status}
+      numberOfLines={3}
+      adjustsFontSizeToFit
+      >
         {todaysInfo.onPeriod ? 'left' : 'to_go'}
       </Text>
     </View>

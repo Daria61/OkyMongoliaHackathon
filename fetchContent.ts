@@ -15,8 +15,6 @@ const locale = 'en'
 const cms_url = 'https://cms.okyapp.info/'
 
 const getContent = async () => {
-  console.log(`Locale: ${locale}`)
-
   // Encyclopedia
   let encyclopediaResponse = []
   const encyclopediaUrl = `${cms_url}mobile/articles/${locale}`
@@ -31,7 +29,6 @@ const getContent = async () => {
   let videosResponse = []
   // const videosUrl = `${cms_url}mobile/videos/${locale}`
   // try {
-  //   console.log('Fetching Videos')
   //   const response = await axios.get(videosUrl)
   //   videosResponse = response.data
   // } catch (error) {
@@ -72,7 +69,6 @@ const getContent = async () => {
   // let aboutBanner = []
   // const aboutBannerUrl = `${cms_url}mobile/about-banner/${locale}`
   // try {
-  //   console.log('Fetching About Banner')
   //   const response = await axios.get(aboutBannerUrl)
   //   aboutBanner = response.data
   // } catch (error) {

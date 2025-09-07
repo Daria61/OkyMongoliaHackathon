@@ -14,7 +14,7 @@ export const SpinnerScreen = ({ text }: { text?: string }) => {
       {text && <Text style={[styles.text, { color: palette.secondary.text }]}>{text}</Text>}
       <View style={styles.container}>
         <View style={styles.inner}>
-          <Image resizeMode="contain" source={assets.static.spin_load_face} style={styles.image} />
+          {/* <Image resizeMode="contain" source={assets.static.spin_load_face} style={styles.image} /> */}
         </View>
 
         <Spinner>

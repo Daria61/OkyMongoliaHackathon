@@ -1,5 +1,4 @@
 import { AppTranslations } from '../core/types/translations/app'
-import { getLocales } from 'expo-localization'
 import {
   Locale,
   appTranslations,
@@ -17,17 +16,8 @@ import { customSignUpTranslations } from '../optional/customSignUp'
 import { customHelpTranslations } from '../optional/customHelpCard'
 import { miscTranslations } from '../optional/misc'
 
+// Always use Mongolian as default language, ignore device language
 let initLocale = defaultLocale
-
-try {
-  const deviceLocale = getLocales()[0]?.languageCode
-  const locales = Object.keys(appTranslations)
-  if (deviceLocale && locales.includes(deviceLocale)) {
-    initLocale = deviceLocale as Locale
-  }
-} catch (e) {
-  //
-}
 
 export const initialLocale = initLocale
 
