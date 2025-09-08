@@ -50,7 +50,12 @@ export const EmojiBadge = ({
           </Text>
         )}
       </Button>
-      <Text enableTranslate={enableTranslate} style={[styles.text, { fontSize: dimensions.text }]}>
+      <Text
+        enableTranslate={enableTranslate}
+        style={[styles.text, { fontSize: dimensions.text }]}
+        numberOfLines={2}
+        adjustsFontSizeToFit={true}
+      >
         {text}
       </Text>
     </View>

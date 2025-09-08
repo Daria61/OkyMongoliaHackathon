@@ -15,7 +15,7 @@ const EncyclopediaScreen: ScreenComponent<'Encyclopedia'> = ({ navigation }) => 
   const goToHelpScreen = () => navigation.navigate('Help')
 
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       {!CUSTOM_HELP_CARD_ENABLED && <HelpCard onPress={goToHelpScreen} />}
 
       <ScrollView
@@ -36,6 +36,9 @@ const EncyclopediaScreen: ScreenComponent<'Encyclopedia'> = ({ navigation }) => 
 export default EncyclopediaScreen
 
 const styles = StyleSheet.create({
+  screen: {
+    position: 'relative',
+  },
   scrollView: {
     padding: 12,
     height: '100%',

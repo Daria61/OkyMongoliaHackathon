@@ -182,16 +182,12 @@ export function createHttpClient(
     },
     fetchEncyclopedia: async ({ locale }: { locale: Locale }) => {
       const url = `${cmsEndpoint}/mobile/articles/${locale}`
-      console.log('🌐 Fetching encyclopedia from:', url)
       const response: AxiosResponse<types.EncyclopediaResponse> = await axios.get(url)
-      console.log('✅ Encyclopedia response status:', response.status)
       return response.data
     },
     // fetchVideos: async ({ locale }: { locale: Locale }) => {
     //   const url = `${cmsEndpoint}/mobile/videos/${locale}`
-    //   console.log('🌐 Fetching videos from:', url)
     //   const response: AxiosResponse<types.EncyclopediaResponse> = await axios.get(url)
-    //   console.log('✅ Videos response status:', response.status)
     //   return response.data
     // },
     fetchSurveys: async ({ locale, userID }: { locale: Locale; userID: User }) => {

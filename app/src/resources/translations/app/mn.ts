@@ -30,7 +30,7 @@ export const mn = {
   delete_account_button: 'Бүртгэлээ\nустгах',
   mood: 'Сэтгэл хөдлөл',
   body: 'Бие',
-  flow: 'Цус гадагшлалт',
+  flow: 'Цус \nгадагшлалт',
   activity: 'Үйлдэл',
   encyclopedia: 'Мэдээлэл',
   day: 'Өдөр',
@@ -269,7 +269,7 @@ export const mn = {
   contact_phone_number_3: '95006789',
   contact_website_3: 'Мэйл:hongorzul_tsegmid@yahoo.com',
 
-  left: 'Сарын\nтэмдэг\nдуусахад',
+  left: 'Сарын тэмдэг дуусахад',
   to_go: 'өдрийн дараа сарын тэмдэг ирнэ',
   // contact us
   message: 'Мессеж',

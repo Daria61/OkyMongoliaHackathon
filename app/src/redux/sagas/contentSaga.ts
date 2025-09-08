@@ -83,14 +83,12 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
   const { locale } = action.payload as { locale: Locale } // TODO:
 
   function* fetchEncyclopedia() {
-    console.log('🔍 Fetching encyclopedia for locale:', locale)
     try {
       // @ts-expect-error TODO:
       const encyclopediaResponse = yield httpClient.fetchEncyclopedia({ locale })
 
       // Commented out video fetching
       // const videosResponse = yield httpClient.fetchVideos({ locale })
-      // console.log('✅ Videos response:', videosResponse)
 
       return fromEncyclopedia({ encyclopediaResponse, videosResponse: [] })
     } catch (error) {
@@ -101,22 +99,18 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
 
   function* fetchPrivacyPolicy() {
     try {
-      console.log('🔍 Fetching privacyPolicy for locale:', locale)
       // @ts-expect-error TODO:
       const privacyPolicy = yield httpClient.fetchPrivacyPolicy({
         locale,
       })
       return privacyPolicy
     } catch (error) {
-      console.error('❌ PrivacyPolicy fetch error:', error)
-      console.log('⚠️ Returning empty privacyPolicy due to error')
       return []
     }
   }
 
   function* fetchTermsAndConditions() {
     try {
-      console.log('🔍 Fetching termsAndConditions for locale:', locale)
       // @ts-expect-error TODO:
       const termsAndConditions = yield httpClient.fetchTermsAndConditions({
         locale,
@@ -124,21 +118,18 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       return termsAndConditions
     } catch (error) {
       console.error('❌ TermsAndConditions fetch error:', error)
-      console.log('⚠️ Returning empty termsAndConditions due to error')
       return []
     }
   }
 
   function* fetchAbout() {
     try {
-      console.log('🔍 Fetching about for locale:', locale)
       // @ts-expect-error TODO:
       const about = yield httpClient.fetchAbout({
         locale,
       })
       return about
     } catch (error) {
-      console.error('❌ About fetch error:', error)
       console.log('⚠️ Returning empty about due to error')
       return []
     }
@@ -146,7 +137,6 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
 
   function* fetchAboutBannerConditional() {
     try {
-      console.log('🔍 Fetching aboutBannerConditional for locale:', locale)
       // @ts-expect-error TODO:
       const timestamp = yield select((s) => s.content.aboutBannerTimestamp)
       // @ts-expect-error TODO:
@@ -156,7 +146,6 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       })
       return aboutBanner
     } catch (error) {
-      console.error('❌ AboutBannerConditional fetch error:', error)
       console.log('⚠️ Returning empty aboutBanner due to error')
       return null
     }
@@ -164,7 +153,6 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
 
   function* fetchHelpCenters() {
     try {
-      console.log('🔍 Fetching helpCenters for locale:', locale)
       // @ts-expect-error TODO:
       const helpCenterResponse = yield httpClient.fetchHelpCenters({
         locale,
@@ -172,14 +160,12 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       return fromHelpCenters(helpCenterResponse)
     } catch (error) {
       console.error('❌ HelpCenters fetch error:', error)
-      console.log('⚠️ Returning empty helpCenters due to error')
       return { helpCenters: [] }
     }
   }
 
   function* fetchHelpCentersAttributes() {
     try {
-      console.log('🔍 Fetching helpCenterAttributes for locale:', locale)
       const helpCenterAttributesResponse =
         // @ts-expect-error TODO:
         yield httpClient.fetchHelpCenterAttributes({
@@ -187,7 +173,6 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
         })
       return helpCenterAttributesResponse
     } catch (error) {
-      console.error('❌ HelpCenterAttributes fetch error:', error)
       console.log('⚠️ Returning empty array for helpCenterAttributes due to 404')
       return [] // Return empty array instead of throwing
     }
@@ -195,7 +180,6 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
 
   function* fetchQuizzes() {
     try {
-      console.log('🔍 Fetching quizzes for locale:', locale)
       // @ts-expect-error TODO:
       const quizzesResponse = yield httpClient.fetchQuizzes({
         locale,
@@ -203,14 +187,12 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       return fromQuizzes(quizzesResponse)
     } catch (error) {
       console.error('❌ Quizzes fetch error:', error)
-      console.log('⚠️ Returning empty quizzes due to error')
       return { quizzes: { allIds: [], byId: {} } }
     }
   }
 
   function* fetchDidYouKnows() {
     try {
-      console.log('🔍 Fetching didYouKnows for locale:', locale)
       // @ts-expect-error TODO:
       const didYouKnows = yield httpClient.fetchDidYouKnows({
         locale,
@@ -218,14 +200,12 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       return fromDidYouKnows(didYouKnows)
     } catch (error) {
       console.error('❌ DidYouKnows fetch error:', error)
-      console.log('⚠️ Returning empty didYouKnows due to error')
       return { didYouKnows: { allIds: [], byId: {} } }
     }
   }
 
   function* fetchAvatarMessages() {
     try {
-      console.log('🔍 Fetching avatarMessages for locale:', locale)
       // @ts-expect-error TODO:
       const avatarMessages = yield httpClient.fetchAvatarMessages({
         locale,
@@ -233,18 +213,12 @@ function* onFetchContentRequest(action: ExtractActionFromActionType<'FETCH_CONTE
       return fromAvatarMessages(avatarMessages)
     } catch (error) {
       console.error('❌ AvatarMessages fetch error:', error)
-      console.log('⚠️ Returning empty avatarMessages due to error')
       return { avatarMessages: [] }
     }
   }
 
   try {
-    console.log('🚀 Starting content fetch for locale:', locale)
     const { articles, categories, subCategories, videos } = yield fetchEncyclopedia()
-    console.log('📚 Articles count:', articles?.allIds?.length || 0)
-    console.log('📚 Videos count:', videos?.allIds?.length || 0)
-    console.log('📚 Videos disabled - using empty videos object')
-
     const { quizzes } = yield fetchQuizzes()
     const { didYouKnows } = yield fetchDidYouKnows()
     const { helpCenters } = yield fetchHelpCenters()

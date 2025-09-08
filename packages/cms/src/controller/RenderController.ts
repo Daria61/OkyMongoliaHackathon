@@ -281,7 +281,6 @@ export class RenderController {
       where: { lang: request.user.lang },
       order: { sortingKey: 'ASC' },
     })
-    console.log('dddddddddddddd',categories);
     this.render(response, 'Categories', { categories })
   }
 

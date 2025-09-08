@@ -115,7 +115,7 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
         <DisplayButton
           status={status}
           appearance={appearance}
-          textStyle={styles.dayText}
+          textStyle={{...styles.dayText, fontSize: 12}}
           style={{ width: CARD_WIDTH / 3 }}
           enableTranslate={false}
         >
@@ -124,6 +124,7 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
         <IconButton
           status={status}
           appearance={appearance}
+          textStyle={{ fontSize: 9, paddingLeft: 5}}
           text={formatMomentDayMonth(dataEntry.date)}
           size={IconSize}
           disabled

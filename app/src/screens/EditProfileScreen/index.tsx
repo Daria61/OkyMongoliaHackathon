@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Input } from '../../components/Input'
 import { appTokenSelector, currentUserSelector } from '../../redux/selectors'
 import { SegmentControl } from '../../components/SegmentControl'
-import { genders, locations, yearOptions } from '../../config/options'
+import { locations, yearOptions } from '../../config/options'
+import { genders } from '../../optional/misc'
 import { User } from '../../types'
 import { WheelPickerOption } from '../../components/WheelPicker'
 import { WheelPickerModal } from '../../components/WheelPickerModal'
@@ -288,7 +289,7 @@ const EditProfileScreen: ScreenComponent<'EditProfile'> = ({ navigation }) => {
           />
         </View>
 
-        <Button onPress={onConfirm} status={confirmStatus} style={styles.confirm}>
+        <Button onPress={onConfirm} status={confirmStatus} style={styles.confirm}  >
           confirm
         </Button>
       </View>
@@ -334,6 +335,7 @@ const styles = StyleSheet.create({
   confirm: {
     marginTop: 12,
     alignSelf: 'center',
+    width: 130,
   },
   wheelPickerModal: {
     width: '100%',

@@ -110,6 +110,7 @@ const WheelButton = ({ index, item }: { index: number; item: DayData }) => {
           status={status}
           appearance={appearance}
           accessibilityLabel={text}
+          textStyle={{ fontSize: 12, paddingLeft: 5}}
         />
       )}
     </Animated.View>
