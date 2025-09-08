@@ -115,7 +115,7 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
         <DisplayButton
           status={status}
           appearance={appearance}
-          textStyle={{...styles.dayText, fontSize: 12}}
+          textStyle={{ ...styles.dayText, fontSize: 12 }}
           style={{ width: CARD_WIDTH / 3 }}
           enableTranslate={false}
         >
@@ -124,7 +124,7 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
         <IconButton
           status={status}
           appearance={appearance}
-          textStyle={{ fontSize: 9, paddingLeft: 5}}
+          textStyle={{ fontSize: 9, paddingLeft: 5 }}
           text={formatMomentDayMonth(dataEntry.date)}
           size={IconSize}
           disabled
@@ -143,25 +143,25 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
 
           const isEmojiActive = isArray
             ? // @ts-expect-error TODO:
-              cardAnswersValues[key]?.length > 0
+            cardAnswersValues[key]?.length > 0
             : // @ts-expect-error TODO:
-              !!cardAnswersValues[key]
+            !!cardAnswersValues[key]
 
           const answer = isEmojiActive
             ? isArray
               ? // @ts-expect-error TODO:
-                cardAnswersValues[key][0]
+              cardAnswersValues[key][0]
               : // @ts-expect-error TODO:
-                cardAnswersValues[key]
+              cardAnswersValues[key]
             : ''
 
           const emoji = isEmojiActive
             ? // @ts-expect-error TODO:
-              emojiOptions[key][answer]
+            emojiOptions[key][answer]
             : defaultEmoji
 
           const text = translate(key)
-
+          console.log('######################', text)
           return (
             <EmojiBadge
               key={`${dataEntry.date}-${key}`}
