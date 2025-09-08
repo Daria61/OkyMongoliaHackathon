@@ -10,7 +10,6 @@ import { Console } from 'console'
 export const CategoryPicker = () => {
   const allCategories = useSelector(allCategoriesSelector)
   const { selectedCategoryIds, setSelectedCategoryIds, videos } = useEncyclopedia()
-console.log('allCategories', allCategories)
   const handlePress = (categoryId: string) => {
     setSelectedCategoryIds((prevSelected) =>
       prevSelected.includes(categoryId)
@@ -37,7 +36,7 @@ console.log('allCategories', allCategories)
         text={'clear_filters'}
         onPress={clearFilters}
         status={clearStatus}
-        enableTranslate={true}        
+        enableTranslate={true}
       >
         <FontAwesome size={20} name={'close'} color={'#fff'} />
       </EmojiBadge>

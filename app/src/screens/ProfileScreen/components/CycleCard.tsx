@@ -51,11 +51,9 @@ export const CycleCard = ({
         {/* ===== Header ===== */}
         <View style={[styles.cycleCardHeader, { backgroundColor: palette.danger.base }]}>
           <View style={styles.row}>
-            <Text 
-              style={styles.headerText}
-              numberOfLines={1}
-              adjustsFontSizeToFit={true}
-            >cycle</Text>
+            <Text style={styles.headerText} numberOfLines={1} adjustsFontSizeToFit={true}>
+              cycle
+            </Text>
             <Text
               enableTranslate={false}
               style={[styles.headerText, styles.bold]}
@@ -65,46 +63,44 @@ export const CycleCard = ({
           </View>
 
           <View style={styles.row}>
-            <Text 
-              enableTranslate={false} 
+            <Text
+              enableTranslate={false}
               style={[styles.headerText, styles.bold]}
               numberOfLines={1}
               adjustsFontSizeToFit={true}
             >
               {`${item.cycleLength} `}
             </Text>
-            <Text 
-              style={styles.headerText}
-              numberOfLines={1}
-              adjustsFontSizeToFit={true}
-            >day_cycle</Text>
+            <Text style={styles.headerText} numberOfLines={1} adjustsFontSizeToFit={true}>
+              day_cycle
+            </Text>
           </View>
 
           <View style={styles.row}>
-            <Text 
-              enableTranslate={false} 
+            <Text
+              enableTranslate={false}
               style={[styles.headerText, styles.bold]}
               numberOfLines={1}
               adjustsFontSizeToFit={true}
             >
               {startDay}
             </Text>
-            <Text 
-              enableTranslate={false} 
+            <Text
+              enableTranslate={false}
               style={styles.headerText}
               numberOfLines={1}
               adjustsFontSizeToFit={true}
             >{` ${startMonth} - `}</Text>
-            <Text 
-              enableTranslate={false} 
+            <Text
+              enableTranslate={false}
               style={[styles.headerText, styles.bold]}
               numberOfLines={1}
               adjustsFontSizeToFit={true}
             >
               {endDay}
             </Text>
-            <Text 
-              enableTranslate={false} 
+            <Text
+              enableTranslate={false}
               style={styles.headerText}
               numberOfLines={1}
               adjustsFontSizeToFit={true}
@@ -119,11 +115,9 @@ export const CycleCard = ({
               <Text enableTranslate={false} style={styles.bold}>
                 {`${item.periodLength} `}
               </Text>
-              <Text 
-                numberOfLines={1} 
-                adjustsFontSizeToFit={true}
-                style={styles.periodText}
-              >day_period</Text>
+              <Text numberOfLines={1} adjustsFontSizeToFit={true} style={styles.periodText}>
+                day_period
+              </Text>
             </View>
 
             <Text>

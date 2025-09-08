@@ -10,13 +10,14 @@ export const HelpCard = ({ ...props }: TouchableOpacityProps) => {
   const selectedAvatar = useSelector(currentAvatarSelector)
   const { palette } = useColor()
 
+  // Fallback to 'panda' if the selected avatar doesn't exist
+  const validAvatar =
+    selectedAvatar === 'panda' || selectedAvatar === 'unicorn' ? selectedAvatar : 'panda'
+  const imageSource = getAsset(`avatars.${validAvatar}.stationary_colour`)
+
   return (
     <TouchableOpacity style={styles.helpCard} {...props}>
-      <Image
-        resizeMode="contain"
-        source={getAsset(`avatars.${selectedAvatar}.stationary_colour`)}
-        style={styles.image}
-      />
+      <Image resizeMode="contain" source={imageSource} style={styles.image} />
       <Text style={[styles.text, { color: palette.secondary.text }]}>find help</Text>
     </TouchableOpacity>
   )
@@ -26,19 +27,20 @@ const styles = StyleSheet.create({
   helpCard: {
     zIndex: 9999,
     position: 'absolute',
-    bottom: 12,
-    right: 12,
+    bottom: 20,
+    right: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 10,
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 20,
-    position: 'absolute',
+    fontSize: 18,
     textAlign: 'center',
-    bottom: 12,
+    marginTop: 8,
   },
   image: {
-    height: 140,
+    height: 120,
+    width: 120,
   },
 })

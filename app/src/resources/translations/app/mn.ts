@@ -30,7 +30,7 @@ export const mn = {
   delete_account_button: 'Бүртгэлээ\nустгах',
   mood: 'Сэтгэл хөдлөл',
   body: 'Бие',
-  flow: 'Цус гадагшлалт',
+  flow: 'Цус \nгадагшлалт',
   activity: 'Үйлдэл',
   encyclopedia: 'Мэдээлэл',
   day: 'Өдөр',
