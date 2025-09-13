@@ -89,7 +89,7 @@ const sizes: Record<
     container: 52,
     circle: 36,
     emoji: 16,
-    text: 10,
+    text: 8,
     margin: 4,
   },
   large: {

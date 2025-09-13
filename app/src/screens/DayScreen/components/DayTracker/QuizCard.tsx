@@ -143,24 +143,23 @@ const styles = StyleSheet.create({
   question: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginTop: 24,
-    marginBottom: 24,
+    marginTop: 12,
   },
   checkboxContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   checkbox: {
-    width: 40,
-    height: 40,
-    marginRight: 12,
-    marginBottom: 12,
+    width: 30,
+    height: 30,
+    marginRight: 6,
+    marginBottom: 6,
   },
   label: {
     fontWeight: 'bold',
   },
   response: {
-    fontSize: 20,
+    fontSize: 13,
     fontWeight: 'bold',
     marginVertical: 'auto',
     textAlign: 'center',

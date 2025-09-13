@@ -167,7 +167,7 @@ export const Avatar = ({ style }: { style?: StyleProp<ViewStyle> }) => {
     >
       <AvatarMessage style={customStyle?.avatarMessage} />
       <AnimatedLottieView
-        resizeMode="contain"
+        resizeMode="center"
         style={{ width: lottieWidth, height: lottieHeight }}
         source={source}
         animatedProps={animatedProps}

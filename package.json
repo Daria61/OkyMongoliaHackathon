@@ -1,6 +1,6 @@
 {
   "name": "oky",
-  "version": "0.0.1",
+  "version": "8.0.0",
   "private": true,
   "scripts": {
     "validate:lotties": "ts-node validateLotties.ts",
