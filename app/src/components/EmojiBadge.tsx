@@ -54,7 +54,6 @@ export const EmojiBadge = ({
         enableTranslate={enableTranslate}
         style={[styles.text, { fontSize: dimensions.text }]}
         numberOfLines={2}
-        adjustsFontSizeToFit={true}
       >
         {text}
       </Text>
@@ -83,21 +82,21 @@ const sizes: Record<
     container: 48,
     circle: 28,
     emoji: 14,
-    text: 10,
+    text: 8,
     margin: 2,
   },
   medium: {
     container: 52,
     circle: 36,
     emoji: 16,
-    text: 12,
+    text: 10,
     margin: 4,
   },
   large: {
     container: 60,
     circle: 44,
     emoji: 22,
-    text: 12,
+    text: 10,
     margin: 8,
   },
 }
