@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     flexDirection: 'row',
+    height: 450,
   },
   page: {
     justifyContent: 'center',
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: '100%',
     marginRight,
+    height: 450,
   },
   footer: {
     flexDirection: 'row',

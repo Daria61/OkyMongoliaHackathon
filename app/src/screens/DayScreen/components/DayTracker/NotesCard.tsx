@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   },
   confirm: {
     padding: 24,
+    marginBottom: 48,
   },
   confirmText: {
     textAlign: 'center',

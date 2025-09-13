@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 24,
-    paddingBottom: IS_ANDROID ? 20 : -20,
+    paddingBottom: IS_ANDROID ? 3 : -14,
   },
   button: {
     width: 24,
