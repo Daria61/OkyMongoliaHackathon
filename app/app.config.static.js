@@ -1,7 +1,7 @@
 export default {
   "expo": {
     "name": "Oky Mongolia",
-    "slug": "oky",
+    "slug": "periodtracker",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./src/resources/assets/app/icon.jpg",
@@ -17,8 +17,7 @@ export default {
       "supportsTablet": true,
       "deploymentTarget": "12.0",
       "infoPlist": {
-        "UIBackgroundModes": ["fetch", "remote-notification"],
-        "ITSAppUsesNonExemptEncryption": false
+        "UIBackgroundModes": ["fetch", "remote-notification"]
       },
       "entitlements": {
         "aps-environment": "production"
@@ -35,7 +34,7 @@ export default {
     },
     "extra": {
       "eas": {
-        "projectId": "b4c0c2da-22d8-474d-a98a-35616d516da0"
+        "projectId": "0cec3098-4500-490f-a523-dd9f3d9059ed"
       }
     },
     "plugins": [
@@ -77,3 +76,5 @@ export default {
     ]
   }
 }
+
+
