@@ -17,10 +17,15 @@ export default {
       "supportsTablet": true,
       "deploymentTarget": "12.0",
       "infoPlist": {
-        "UIBackgroundModes": ["fetch", "remote-notification"]
+        "UIBackgroundModes": ["fetch", "remote-notification"],
+        "NSCameraUsageDescription": "This app uses camera for profile photos",
+        "NSPhotoLibraryUsageDescription": "This app accesses photo library for profile photos"
       },
       "entitlements": {
         "aps-environment": "production"
+      },
+      "config": {
+        "googleServicesFile": "./GoogleService-Info.plist"
       }
     },
     "android": {
@@ -34,7 +39,7 @@ export default {
     },
     "extra": {
       "eas": {
-        "projectId": "0cec3098-4500-490f-a523-dd9f3d9059ed"
+        "projectId": "84a3f142-9683-4947-805c-45bb8d5e7ffa"
       }
     },
     "plugins": [

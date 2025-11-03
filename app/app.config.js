@@ -2,7 +2,7 @@ export default {
   "expo": {
     "name": "Oky Mongolia",
     "slug": "oky",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "default",
     "icon": "./src/resources/assets/app/icon.jpg",
     "splash": {
@@ -13,9 +13,9 @@ export default {
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.oky.mn",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "supportsTablet": true,
-      "deploymentTarget": "12.0",
+      "deploymentTarget": "12.1",
       "infoPlist": {
         "UIBackgroundModes": ["fetch", "remote-notification"],
         "ITSAppUsesNonExemptEncryption": false
@@ -35,7 +35,7 @@ export default {
     },
     "extra": {
       "eas": {
-        "projectId": "b4c0c2da-22d8-474d-a98a-35616d516da0"
+        "projectId": "84a3f142-9683-4947-805c-45bb8d5e7ffa"
       }
     },
     "plugins": [
