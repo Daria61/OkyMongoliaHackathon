@@ -13,7 +13,7 @@ export default {
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.oky.mn",
-      "buildNumber": "2",
+      "buildNumber": "3",
       "supportsTablet": true,
       "deploymentTarget": "12.1",
       "infoPlist": {
