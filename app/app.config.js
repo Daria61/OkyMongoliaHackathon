@@ -2,7 +2,7 @@ export default {
   "expo": {
     "name": "Oky Mongolia",
     "slug": "oky",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "orientation": "default",
     "icon": "./src/resources/assets/app/icon.jpg",
     "splash": {
