@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 import { setAvatar, setTheme } from '../../redux/actions'
 import { globalStyles } from '../../config/theme'
 import { Text } from '../../components/Text'
-import { analytics } from '../../services/firebase'
+import { safeAnalytics } from '../../services/analyticsLogger'
 import { PaletteStatus, useColor } from '../../hooks/useColor'
 
 const AvatarAndThemeScreen = () => {
@@ -38,12 +38,12 @@ export const AvatarAndThemeSelect = ({ onConfirm }: AvatarAndThemeSelectProps) =
     dispatch(setTheme(selectedTheme))
 
     if (selectedAvatar !== currentAvatar) {
-      analytics?.().logEvent('avatarChanged', {
+      safeAnalytics.logEvent('avatarChanged', {
         selectedAvatar,
       })
     }
     if (selectedTheme !== currentTheme) {
-      analytics?.().logEvent('themeChanged', {
+      safeAnalytics.logEvent('themeChanged', {
         selectedTheme,
       })
     }

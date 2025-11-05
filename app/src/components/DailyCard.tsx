@@ -25,7 +25,7 @@ import { useDayStatus } from '../hooks/useDayStatus'
 import { ThemeName } from '../resources/translations'
 import { useTranslate } from '../hooks/useTranslate'
 import { useFormatDate } from '../hooks/useFormatDate'
-import { analytics } from '../services/firebase'
+import { safeAnalytics } from '../services/analyticsLogger'
 import { updateLastPressedCardDate } from '../redux/actions'
 import { useColor } from '../hooks/useColor'
 import { emojiOptions } from '../optional/emojis'
@@ -88,7 +88,6 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
     const todayDate = moment().format('YYYY-MM-DD')
     if (lastPressedDate !== todayDate) {
       dispatch(updateLastPressedCardDate(todayDate))
-      analytics?.().logEvent('dailyCardPressed')
     }
 
     navigation.navigate('Day', { date: dataEntry.date })
@@ -161,7 +160,7 @@ export const DailyCard = ({ dataEntry, disabled }: DailyCardProps) => {
             : defaultEmoji
 
           const text = translate(key)
-          console.log('######################', text)
+          
           return (
             <EmojiBadge
               key={`${dataEntry.date}-${key}`}

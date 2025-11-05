@@ -12,7 +12,7 @@ import { SubCategory } from '../../../core/types'
 import { globalStyles } from '../../../config/theme'
 import { currentUserSelector } from '../../../redux/selectors'
 import { useAuth } from '../../../contexts/AuthContext'
-import { analytics } from '../../../services/firebase'
+import { safeAnalytics } from '../../../services/analyticsLogger'
 import { useColor } from '../../../hooks/useColor'
 
 export const Accordion = () => {
@@ -48,13 +48,13 @@ const AccordionItem = ({ categoryId }: { categoryId: string }) => {
     }
 
     if (hasAccess) {
-      analytics?.().logEvent('categoryPressedLoggedIn', {
+      safeAnalytics.logEvent('categoryPressedLoggedIn', {
         userId: user.id,
         categoryId: category.id,
         categoryName: category.name,
       })
     } else {
-      analytics?.().logEvent('categoryPressedLoggedOut', {
+      safeAnalytics.logEvent('categoryPressedLoggedOut', {
         categoryId: category.id,
         categoryName: category.name,
       })
@@ -69,13 +69,13 @@ const AccordionItem = ({ categoryId }: { categoryId: string }) => {
       navigation.navigate('Articles', { subcategoryId })
 
       if (hasAccess) {
-        analytics?.().logEvent('subCategoryPressedLoggedIn', {
+        safeAnalytics.logEvent('subCategoryPressedLoggedIn', {
           userId: user.id,
           subcategoryId,
           subcategoryName,
         })
       } else {
-        analytics?.().logEvent('subCategoryPressedLoggedOut', {
+        safeAnalytics.logEvent('subCategoryPressedLoggedOut', {
           subcategoryId,
           subcategoryName,
         })

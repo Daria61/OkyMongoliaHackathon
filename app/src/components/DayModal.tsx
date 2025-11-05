@@ -28,7 +28,7 @@ import { useAvatarMessage } from '../contexts/AvatarMessageContext'
 import { isFutureDate } from '../services/dateUtils'
 import { useFormatDate } from '../hooks/useFormatDate'
 import { useLoading } from '../contexts/LoadingProvider'
-import { analytics } from '../services/firebase'
+import { safeAnalytics } from '../services/analyticsLogger'
 import { PeriodDate } from '../screens/CalendarScreen'
 // import { usePredictDay } from "../contexts/PredictionProvider";
 
@@ -222,7 +222,7 @@ export const DayModal = ({
   }
 
   function onYesPress() {
-    analytics?.().logEvent('periodDayCloudTap', { userId: currentUser.id })
+    safeAnalytics.logEvent('periodDayCloudTap', { userId: currentUser.id })
 
     if (isFutureDate(inputDay)) {
       setAvatarMessage('too_far_ahead', true)
@@ -290,7 +290,7 @@ export const DayModal = ({
     setPeriodDates(updatedPeriodDates)
   }
   const onNoPress = () => {
-    analytics?.().logEvent('noPeriodDayCloudTap', { userId: currentUser.id })
+    safeAnalytics.logEvent('noPeriodDayCloudTap', { userId: currentUser.id })
 
     if (moment(inputDay).isAfter(moment())) {
       setAvatarMessage('too_far_ahead', true)

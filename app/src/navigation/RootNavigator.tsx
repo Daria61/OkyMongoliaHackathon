@@ -18,7 +18,7 @@ import AuthStack, { AuthStackParamList } from './stacks/AuthStack'
 import { useSelector } from '../redux/useSelector'
 import { currentUserSelector } from '../redux/selectors'
 import { useAuth } from '../contexts/AuthContext'
-import { analytics } from '../services/firebase'
+import { safeAnalytics } from '../services/analyticsLogger'
 import { useMessaging } from '../hooks/useMessaging'
 import { useAvailableLocaleEffect } from '../hooks/useTranslate'
 import { useSound } from '../contexts/SoundProvider'
@@ -156,7 +156,7 @@ function RootNavigator() {
           return
         }
 
-        analytics?.().logScreenView({
+        safeAnalytics.logScreenView({
           screen_name: currentRouteName,
           screen_class: currentRouteName,
         })
@@ -166,9 +166,9 @@ function RootNavigator() {
         }
 
         if (hasAccess) {
-          analytics?.().logEvent(`viewed${currentRouteName}LoggedIn`)
+          safeAnalytics.logEvent(`viewed${currentRouteName}LoggedIn`)
         } else {
-          analytics?.().logEvent(`viewed${currentRouteName}LoggedOut`)
+          safeAnalytics.logEvent(`viewed${currentRouteName}LoggedOut`)
         }
       }}
       linking={linking}

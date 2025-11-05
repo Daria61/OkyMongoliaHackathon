@@ -22,12 +22,16 @@ try {
         // Firebase will automatically use google-services.json for Android
         // and GoogleService-Info.plist for iOS
       })
+      console.log('✅ Firebase initialized successfully')
     } else {
       firebaseApp = firebase.app()
+      console.log('✅ Firebase app already exists')
     }
+  } else {
+    console.log('⚠️ Running in Expo Go - Firebase disabled')
   }
 } catch (e) {
-  console.warn('Firebase initialization failed:', e)
+  console.error('❌ Firebase initialization failed:', e)
 }
 
 let analytics:
@@ -38,11 +42,12 @@ let analytics:
   | undefined
 
 try {
-  if (!isExpoGo) {
+  if (!isExpoGo && firebaseApp) {
     analytics = require('@react-native-firebase/analytics').default
+    console.log('✅ Firebase Analytics initialized successfully')
   }
 } catch (e) {
-  //
+  console.warn('⚠️ Firebase Analytics initialization failed:', e)
 }
 
 // TODO: Crashlytics disabled - code commented out to resolve app crash issues
@@ -71,11 +76,12 @@ let messaging:
   | undefined
 
 try {
-  if (!isExpoGo) {
+  if (!isExpoGo && firebaseApp) {
     messaging = require('@react-native-firebase/messaging').default
+    console.log('✅ Firebase Messaging initialized successfully')
   }
 } catch (e) {
-  //
+  console.warn('⚠️ Firebase Messaging initialization failed:', e)
 }
 
 export { analytics, messaging, firebaseApp }

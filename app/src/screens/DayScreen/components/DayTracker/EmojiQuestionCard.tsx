@@ -22,7 +22,7 @@ import { DayModal } from '../../../../components/DayModal'
 import { useToggle } from '../../../../hooks/useToggle'
 import { useTranslate } from '../../../../hooks/useTranslate'
 import moment from 'moment'
-import { analytics } from '../../../../services/firebase'
+import { safeAnalytics } from '../../../../services/analyticsLogger'
 import { useResponsive } from '../../../../contexts/ResponsiveContext'
 import { useColor } from '../../../../hooks/useColor'
 
@@ -74,7 +74,7 @@ export const EmojiQuestionCard = ({
 
     if (lastClickedDate !== todayDate) {
       dispatch(updateLastPressedEmojiDate(todayDate))
-      analytics?.().logEvent('dailyCardAnsweredEmoji')
+      safeAnalytics.logEvent('dailyCardAnsweredEmoji')
     }
 
     dispatch(
