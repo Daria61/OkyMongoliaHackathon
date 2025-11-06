@@ -141,7 +141,7 @@ export const Avatar = ({ style }: { style?: StyleProp<ViewStyle> }) => {
 
   const source = assets.lottie.avatars[avatar] || assets.lottie.avatars.panda
   const lottieAspectRatio = source.w / source.h
-  const lottieWidth = diameter * 0.33 - 12
+  const lottieWidth = diameter * 0.2 - 12
   const lottieHeight = lottieWidth / lottieAspectRatio
 
   // - Top half of lottie is empty space, +72 height of CircleProgress
@@ -167,7 +167,7 @@ export const Avatar = ({ style }: { style?: StyleProp<ViewStyle> }) => {
     >
       <AvatarMessage style={customStyle?.avatarMessage} />
       <AnimatedLottieView
-        resizeMode="center"
+        resizeMode="cover"
         style={{ width: lottieWidth, height: lottieHeight }}
         source={source}
         animatedProps={animatedProps}

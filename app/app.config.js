@@ -2,7 +2,7 @@ export default {
   "expo": {
     "name": "Oky Mongolia",
     "slug": "oky",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "orientation": "default",
     "icon": "./src/resources/assets/app/icon.jpg",
     "splash": {
@@ -13,7 +13,7 @@ export default {
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.oky.mn",
-      "buildNumber": "3",
+      "buildNumber": "4",
       "supportsTablet": true,
       "deploymentTarget": "12.1",
       "infoPlist": {
