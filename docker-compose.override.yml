@@ -2,22 +2,30 @@ version: "3.4"
 services:
   api:
     build:
+      context: .
+      dockerfile: packages/api/Dockerfile
       target: development
     volumes:
       - ./packages/api:/usr/src/app/packages/api
+      - ./packages/core:/usr/src/app/packages/core
       - ./package.json:/usr/src/app/package.json
       - ./yarn.lock:/usr/src/app/yarn.lock
       - /usr/src/app/node_modules
       - /usr/src/app/packages/api/node_modules
+      - /usr/src/app/packages/core/node_modules
   cms:
     build:
+      context: .
+      dockerfile: packages/cms/Dockerfile
       target: development
     volumes:
       - ./packages/cms:/usr/src/app/packages/cms
+      - ./packages/core:/usr/src/app/packages/core
       - ./package.json:/usr/src/app/package.json
       - ./yarn.lock:/usr/src/app/yarn.lock
       - /usr/src/app/node_modules
       - /usr/src/app/packages/cms/node_modules
+      - /usr/src/app/packages/core/node_modules
   adminer:
     image: adminer
     restart: always

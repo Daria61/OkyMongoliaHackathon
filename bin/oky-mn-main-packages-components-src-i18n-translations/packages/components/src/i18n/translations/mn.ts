@@ -23,7 +23,7 @@ export const mn = {
   back_to_signup: 'Бүртгүүлэх хэсэг рүү буцах',
   undo: 'Буцаах',
   carousel_no_access: `Өө өө! Ирээдүй дэх өдрийн тэмдэглэлээ бөглөж болохгүй! 😅`,
-  confirm: 'Баталгаажуулах',
+  confirm: 'Баталгаажуула',
   calendar: 'Хуанли',
   connect_account: 'Бүртгэл хадгалах',
   delete_account: 'Бүртгэлээ устгах',

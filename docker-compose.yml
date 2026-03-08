@@ -1,26 +1,23 @@
 version: '3.4'
 services:
-  base:
-    image: oky/base
-    build:
-      context: .
-    command: /bin/true
   api:
     build:
-      context: packages/api/.
+      context: .
+      dockerfile: packages/api/Dockerfile
     ports:
       - 3000:3000
     env_file: packages/api/.env
     depends_on:
-      - base
+      - postgres
   cms:
     build:
-      context: packages/cms/.
+      context: .
+      dockerfile: packages/cms/Dockerfile
     ports:
       - 5000:5000
     env_file: packages/cms/.env
     depends_on:
-      - base
+      - postgres
   postgres:
     image: postgres:10-alpine
     volumes:
