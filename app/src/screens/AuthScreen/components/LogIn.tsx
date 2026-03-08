@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { loginRequest } from '../../../redux/actions'
 import { Text } from '../../../components/Text'
 import { AuthCardBody } from './AuthCardBody'
+import { AuthLinks } from './AuthLinks'
 
 export const LogIn = () => {
   const user = useSelector(currentUserSelector)
@@ -95,6 +96,7 @@ export const LogIn = () => {
       <TouchableOpacity onPress={onConfirm} style={[styles.confirm, { marginBottom: margin }]}>
         <Text style={styles.confirmText}>confirm</Text>
       </TouchableOpacity>
+      <AuthLinks />
     </>
   )
 }

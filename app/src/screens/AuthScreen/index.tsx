@@ -61,10 +61,11 @@ const AuthScreenInner = ({ navigation }: ScreenProps<'Auth'>) => {
           {authMode === 'delete_account' && <DeleteAccount />}
         </AnimatedContainer>
       </View>
+      <AuthLinks />
 
       {authMode === 'start' && (
         <>
-          <AuthLinks />
+          {/* <AuthLinks /> */}
           <View style={styles.footer}>
             <Button status={'basic'} onPress={goToInfo}>
               info
